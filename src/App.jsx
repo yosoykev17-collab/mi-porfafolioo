@@ -1,4 +1,10 @@
 import { useState } from "react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaPhone,
+} from "react-icons/fa";
 import "./App.css";
 
 function App() {
@@ -25,8 +31,9 @@ function App() {
           <h2 className="role">Frontend Developer</h2>
 
           <p className="description">
-            Desarrollo interfaces modernas y sistemas web funcionales.
-            Me enfoco en crear soluciones profesionales y eficientes.
+            Desarrollador apasionado por crear interfaces modernas,
+            sistemas web funcionales y experiencias digitales
+            profesionales utilizando React y tecnologías actuales.
           </p>
 
           <div className="buttons">
@@ -38,9 +45,7 @@ function App() {
         </div>
 
         <div className="hero-right">
-          <div className="image-container">
-            <img src="/foto.jpg" alt="Kevin" />
-          </div>
+          <img src="/foto.jpg" alt="Kevin" className="profile-img" />
         </div>
       </section>
 
@@ -49,36 +54,36 @@ function App() {
         <h2 className="section-title">Mis Proyectos</h2>
 
         <div className="project-grid">
-
           <div className="project-card" onClick={() => setActiveProject("clinico")}>
             <h3>Sistema Clínico</h3>
-            <p>Gestión de pacientes y citas médicas.</p>
+            <p>Gestión médica completa con PDF y agenda.</p>
           </div>
 
           <div className="project-card" onClick={() => setActiveProject("web")}>
-            <h3>Páginas Web & React</h3>
-            <p>Desarrollo frontend moderno.</p>
+            <h3>Desarrollo Web & React</h3>
+            <p>Páginas modernas y responsivas.</p>
           </div>
 
           <div className="project-card" onClick={() => setActiveProject("colab")}>
             <h3>Proyectos Institucionales</h3>
-            <p>Trabajo colaborativo académico.</p>
+            <p>Trabajo colaborativo multiplataforma.</p>
           </div>
-
         </div>
+      </section>
 
-        {/* PROYECTO EXPANDIDO */}
-
-        {activeProject && (
-          <div className="project-detail">
+      {/* MODAL */}
+      {activeProject && (
+        <div className="modal-overlay" onClick={() => setActiveProject(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            
             {activeProject === "clinico" && (
               <>
                 <h3>Sistema Clínico para Doctores</h3>
                 <p>
-                  Sistema local que permite registrar pacientes,
-                  gestionar citas médicas, generar recetas en PDF,
-                  visualizar calendario, administrar notas clínicas
-                  y consultar el estado de los pacientes.
+                  Aplicación local para gestión de pacientes,
+                  registro de citas médicas, generación automática
+                  de recetas en PDF, calendario interactivo,
+                  notas médicas y control del estado del paciente.
                 </p>
                 <img src="/proyecto1.jpg" alt="Sistema Clínico" />
               </>
@@ -86,56 +91,94 @@ function App() {
 
             {activeProject === "web" && (
               <>
-                <h3>Desarrollo de Páginas Web</h3>
+                <h3>Desarrollo Web & React JS</h3>
                 <p>
-                  Creación de sitios responsivos utilizando React JS,
-                  JavaScript, CSS moderno y buenas prácticas
-                  de desarrollo frontend.
+                  Desarrollo de páginas modernas utilizando React,
+                  JavaScript y diseño UI profesional.
+                  Implementación responsive y buenas prácticas.
                 </p>
-                <img src="/proyecto2.jpg" alt="Paginas Web" />
+                <img src="/proyecto2.jpg" alt="React Project" />
               </>
             )}
 
             {activeProject === "colab" && (
               <>
-                <h3>Proyectos Colaborativos</h3>
+                <h3>Proyectos Institucionales</h3>
                 <p>
-                  Participación en proyectos académicos
-                  desarrollando aplicaciones multiplataforma
-                  en equipo, utilizando metodologías ágiles.
+                  Participación en desarrollo de aplicaciones
+                  académicas utilizando trabajo en equipo,
+                  metodologías ágiles y desarrollo multiplataforma.
                 </p>
-                <img src="/proyecto3.jpg" alt="Proyecto Colaborativo" />
+                <img src="/proyecto3.jpg" alt="Colaborativo" />
               </>
             )}
 
-            <button onClick={() => setActiveProject(null)} className="close-btn">
+            <button className="close-btn" onClick={() => setActiveProject(null)}>
               Cerrar
             </button>
           </div>
-        )}
-      </section>
+        </div>
+      )}
 
-      {/* SOBRE MI */}
-      <section className="about" id="sobre">
-        <h2 className="section-title">Sobre Mí</h2>
-        <p>
-          Soy estudiante de la Universidad Tecnológica de la Sierra Hidalguense,
-          curso la Licenciatura en Desarrollo de Software Multiplataforma
-          y actualmente estoy en 5° cuatrimestre.
-          Me especializo en desarrollo frontend con React y creación
-          de sistemas web funcionales y profesionales.
-        </p>
-      </section>
+{/* SOBRE MI MODERNO */}
+<section className="about-modern" id="sobre">
+  <h2 className="section-title">Sobre Mí</h2>
+
+  <div className="about-modern-container">
+
+    <div className="about-left">
+      <img
+        src="/foto2.jpg"
+        alt="Kevin"
+        className="about-photo"
+      />
+    </div>
+
+    <div className="about-right">
+      <h3>Kevin Yahir Felipe Mercado</h3>
+
+      <p>
+        Soy estudiante de la Universidad Tecnológica de la Sierra Hidalguense,
+        cursando la Licenciatura en Desarrollo de Software Multiplataforma.
+        Actualmente me encuentro en 5° cuatrimestre.
+      </p>
+
+      <p>
+        Me especializo en desarrollo web con React JS, diseño de interfaces
+        modernas y creación de sistemas funcionales como sistemas clínicos,
+        aplicaciones institucionales y páginas web profesionales.
+      </p>
+
+      <div className="about-stats">
+        <div>
+          <h4>5°</h4>
+          <span>Cuatrimestre</span>
+        </div>
+
+        <div>
+          <h4>3+</h4>
+          <span>Proyectos Reales</span>
+        </div>
+
+        <div>
+          <h4>React</h4>
+          <span>Frontend</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* CONTACTO */}
       <section className="contact" id="contacto">
         <h2 className="section-title">Contacto</h2>
 
         <div className="contact-grid">
-          <a href="mailto:tuemail@gmail.com" target="_blank">📧 Email</a>
-          <a href="https://github.com/tuusuario" target="_blank">💻 GitHub</a>
-          <a href="https://linkedin.com/in/tuperfil" target="_blank">🔗 LinkedIn</a>
-          <a href="tel:7710000000">📱 Teléfono</a>
+          <a href="mailto:20240075@utsh.edu.mx"><FaEnvelope /> Email</a>
+          <a href="https://github.com/yosoykev17-collab" target="_blank"><FaGithub /> GitHub</a>
+          <a href="https://www.linkedin.com/in/kevin-yahir-felipe-mercado-8753183a9/" target="_blank"><FaLinkedin /> LinkedIn</a>
+          <a href="tel:7711398703"><FaPhone /> Teléfono</a>
         </div>
       </section>
 
